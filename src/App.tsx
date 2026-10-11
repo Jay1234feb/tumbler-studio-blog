@@ -87,6 +87,18 @@ export default function App() {
   }, [currentPath]);
 
   const handleNavigate = (path: string) => {
+    if (path.startsWith('/#') || path.startsWith('#')) {
+      const hash = path.replace(/^\/?#/, '');
+      if (normalizePath(currentPath) !== '/') {
+        setCurrentPath('/');
+        window.history.pushState(null, '', '/');
+      }
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 60);
+      return;
+    }
     setCurrentPath(path);
     window.history.pushState(null, '', path);
   };

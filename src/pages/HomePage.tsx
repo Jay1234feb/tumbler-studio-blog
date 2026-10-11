@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ARTICLES } from '../data/articles';
 import {
   ArrowRight,
@@ -6,11 +6,11 @@ import {
   ThermometerSnowflake,
   Sparkles,
   HelpCircle,
-  Droplets,
   ShieldCheck,
   CheckCircle2,
   Clock,
-  Compass
+  Compass,
+  Filter
 } from 'lucide-react';
 import heroSageImg from '../assets/images/tumbler_hero_sage_1791720658763.jpg';
 
@@ -19,11 +19,44 @@ interface HomePageProps {
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+  const [filterCategory, setFilterCategory] = useState<'all' | 'buying' | 'thermal' | 'care'>('all');
+
   const handleLink = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     onNavigate(path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Filter 10 articles into categories
+  const filteredArticles = ARTICLES.filter((art) => {
+    if (filterCategory === 'all') return true;
+    if (filterCategory === 'buying') {
+      return [
+        'best-reusable-tumblers',
+        'stainless-steel-vs-plastic-tumblers',
+        'how-to-choose-the-right-tumbler-size',
+        'are-reusable-tumblers-eco-friendly'
+      ].includes(art.slug);
+    }
+    if (filterCategory === 'thermal') {
+      return [
+        'insulated-tumblers',
+        'how-long-do-insulated-tumblers-keep-drinks-cold',
+        'tumbler-lid-and-straw-types-explained'
+      ].includes(art.slug);
+    }
+    if (filterCategory === 'care') {
+      return [
+        'how-to-clean-a-tumbler',
+        'how-to-remove-smells-from-a-tumbler',
+        'how-to-prevent-tumbler-leaks-and-spills'
+      ].includes(art.slug);
+    }
+    return true;
+  });
+
+  // Spotlight 3 articles for top featured section
+  const spotlightArticles = ARTICLES.slice(0, 3);
 
   return (
     <div className="space-y-20 pb-16">
@@ -34,7 +67,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#C86D51]">
               <Compass className="w-3.5 h-3.5 text-[#C86D51]" />
-              <span>The Independent Drinkware Publication</span>
+              <span>The Independent Drinkware Publication · 10 Guides Published</span>
             </div>
 
             {/* Exactly ONE H1 on the homepage */}
@@ -43,10 +76,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </h1>
 
             <p className="text-base sm:text-lg text-[#555A52] leading-relaxed max-w-2xl text-pretty">
-              Welcome to Tumbler Studio — an informative drinkware blog exploring the science of double-wall vacuum insulation, food-grade materials, leakproof lid engineering, and practical sanitization protocols for daily coffee and hydration enthusiasts.
+              Welcome to Tumbler Studio — an informative drinkware blog exploring the science of double-wall vacuum insulation, food-grade materials, leakproof lid engineering, and practical sanitization protocols across 10 in-depth articles.
             </p>
 
-            {/* Core editorial topics without pill boxes */}
+            {/* Core editorial topics */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-medium text-[#4B5047] pt-1">
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-[#8F9E8B]" />
@@ -67,19 +100,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             {/* Hero CTAs */}
             <div className="flex flex-wrap items-center gap-4 pt-3">
               <a
-                href="/articles/best-reusable-tumblers/"
-                onClick={(e) => handleLink(e, '/articles/best-reusable-tumblers/')}
+                href="#all-guides"
                 className="px-6 py-3.5 bg-[#C86D51] hover:bg-[#B1583D] text-white text-xs font-semibold rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer"
               >
-                <span>Read Reusable Tumblers Guide</span>
+                <span>Browse All 10 Guides</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <a
-                href="#featured-articles"
+                href="/articles/best-reusable-tumblers/"
+                onClick={(e) => handleLink(e, '/articles/best-reusable-tumblers/')}
                 className="px-5 py-3.5 bg-white hover:bg-[#F4F0E8] text-[#2C2E2B] text-xs font-semibold rounded-xl border border-[#D9D2C5] transition-all flex items-center gap-2 cursor-pointer"
               >
-                <span>Browse All Articles</span>
+                <span>Start with Buyer's Guide</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#8F9E8B]" />
               </a>
             </div>
@@ -159,25 +192,25 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Featured Blog Articles Section */}
-      <section id="featured-articles" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-24">
+      {/* Featured Spotlight Articles Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-3 border-b border-[#E8E2D5]">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-[#C86D51]">
-              Featured Reading
+              Editorial Highlights
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#2C2E2B] font-display mt-1">
-              Explore Our Comprehensive Drinkware Guides
+              Top Featured Drinkware Guides
             </h2>
           </div>
           <p className="text-xs text-[#6C7069] sm:text-right max-w-xs">
-            Researched, long-form articles (~1,200 words each) covering buying choices, thermal physics, and care.
+            Start with our foundational guides covering buying choices, thermal physics, and daily care.
           </p>
         </div>
 
-        {/* 3 Featured Article Cards */}
+        {/* 3 Top Spotlight Article Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {ARTICLES.map((article) => (
+          {spotlightArticles.map((article) => (
             <article
               key={article.slug}
               className="bg-white border border-[#E8E2D5] rounded-2xl overflow-hidden flex flex-col group hover:-translate-y-1 hover:shadow-md transition-all duration-200"
@@ -228,6 +261,129 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     href={article.url}
                     onClick={(e) => handleLink(e, article.url)}
                     className="font-semibold text-[#C86D51] group-hover:text-[#B1583D] flex items-center gap-1.5"
+                  >
+                    <span>Read Article</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Complete Library: All 10 Articles Section */}
+      <section id="all-guides" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-24">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-3 border-b border-[#E8E2D5]">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wider text-[#8F9E8B]">
+              Full Publication Index
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2C2E2B] font-display mt-1">
+              All 10 Hydration & Drinkware Articles
+            </h2>
+          </div>
+
+          {/* Category Filter Tabs */}
+          <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#F2ECE1] rounded-lg border border-[#E5DFD3]">
+            <button
+              onClick={() => setFilterCategory('all')}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer ${
+                filterCategory === 'all'
+                  ? 'bg-white text-[#2C2E2B] shadow-xs font-semibold'
+                  : 'text-[#6C7069] hover:text-[#2C2E2B]'
+              }`}
+            >
+              All 10 Guides
+            </button>
+            <button
+              onClick={() => setFilterCategory('buying')}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer ${
+                filterCategory === 'buying'
+                  ? 'bg-white text-[#2C2E2B] shadow-xs font-semibold'
+                  : 'text-[#6C7069] hover:text-[#2C2E2B]'
+              }`}
+            >
+              Buying & Sizing
+            </button>
+            <button
+              onClick={() => setFilterCategory('thermal')}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer ${
+                filterCategory === 'thermal'
+                  ? 'bg-white text-[#2C2E2B] shadow-xs font-semibold'
+                  : 'text-[#6C7069] hover:text-[#2C2E2B]'
+              }`}
+            >
+              Thermal Science
+            </button>
+            <button
+              onClick={() => setFilterCategory('care')}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer ${
+                filterCategory === 'care'
+                  ? 'bg-white text-[#2C2E2B] shadow-xs font-semibold'
+                  : 'text-[#6C7069] hover:text-[#2C2E2B]'
+              }`}
+            >
+              Care & Cleaning
+            </button>
+          </div>
+        </div>
+
+        {/* 10 Articles Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filteredArticles.map((article, index) => (
+            <article
+              key={article.slug}
+              className="bg-white border border-[#E8E2D5] rounded-xl overflow-hidden flex flex-col group hover:-translate-y-1 hover:shadow-md transition-all duration-200"
+            >
+              <div className="relative aspect-[16/10] bg-[#F4F0E8] overflow-hidden">
+                <img
+                  src={article.heroImage}
+                  alt={article.heroImageAlt}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute top-2.5 left-2.5 bg-[#FAF8F5]/90 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-semibold text-[#3E4C3D] border border-[#E8E2D5]">
+                  Guide #{ARTICLES.findIndex((a) => a.slug === article.slug) + 1}
+                </div>
+                <div className="absolute top-2.5 right-2.5 bg-[#FAF8F5]/90 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-medium text-[#2C2E2B] border border-[#E8E2D5]">
+                  {article.readTime}
+                </div>
+              </div>
+
+              <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
+                <div>
+                  <div className="text-[11px] text-[#6C7069] mb-1.5 flex items-center gap-1.5">
+                    <span>{article.author.name}</span>
+                    <span aria-hidden="true">·</span>
+                    <span>{article.publishedDate}</span>
+                  </div>
+
+                  <h3 className="text-base font-bold text-[#2C2E2B] group-hover:text-[#C86D51] transition-colors leading-snug">
+                    <a
+                      href={article.url}
+                      onClick={(e) => handleLink(e, article.url)}
+                      className="hover:underline"
+                    >
+                      {article.title}
+                    </a>
+                  </h3>
+
+                  <p className="text-xs text-[#555A52] mt-2 line-clamp-2 leading-relaxed">
+                    {article.summary}
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-[#F2ECE1] flex items-center justify-between text-xs">
+                  <span className="text-[#8F9E8B] font-semibold text-[11px]">
+                    ~{article.wordCount} words
+                  </span>
+
+                  <a
+                    href={article.url}
+                    onClick={(e) => handleLink(e, article.url)}
+                    className="font-semibold text-[#C86D51] group-hover:text-[#B1583D] flex items-center gap-1"
                   >
                     <span>Read Article</span>
                     <ArrowRight className="w-3.5 h-3.5" />
