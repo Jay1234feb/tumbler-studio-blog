@@ -1,0 +1,8 @@
+{
+  "name": "Tumbler Studio Blog",
+  "description": "Tumbler Studio is an informative, beautifully designed drinkware blog covering reusable tumblers, thermal insulation technology, and maintenance guides.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
