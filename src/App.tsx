@@ -10,20 +10,34 @@ import { HomePage } from './pages/HomePage';
 import { ArticlePage } from './pages/ArticlePage';
 import { ARTICLES } from './data/articles';
 
-// Helper to normalize path by removing trailing slash if not root
+// Helper to normalize path by removing trailing slash, query params, hash, or .html extension
 const normalizePath = (p: string) => {
   if (p === '/' || !p) return '/';
-  return p.endsWith('/') ? p.slice(0, -1) : p;
+  let clean = p.split('#')[0].split('?')[0];
+  if (clean.endsWith('.html')) clean = clean.slice(0, -5);
+  return clean.endsWith('/') ? clean.slice(0, -1) : clean;
+};
+
+// Robust matcher for finding article by any URL variation
+const findArticleByPath = (path: string) => {
+  const normalized = normalizePath(path);
+  if (normalized === '/') return undefined;
+  return ARTICLES.find((a) => {
+    const normUrl = normalizePath(a.url);
+    const normSlug = normalizePath(a.slug);
+    return (
+      normUrl === normalized ||
+      normSlug === normalized ||
+      normalized === `/articles/${normSlug}` ||
+      normalized.endsWith(`/${normSlug}`)
+    );
+  });
 };
 
 export default function App() {
   // Read current path from browser, matching against article slugs
   const [currentPath, setCurrentPath] = useState<string>(() => {
-    const raw = window.location.pathname;
-    const normalized = normalizePath(raw);
-    const match = ARTICLES.find(
-      (a) => normalizePath(a.url) === normalized || normalizePath(a.slug) === normalized
-    );
+    const match = findArticleByPath(window.location.pathname);
     if (match) return match.url;
     return '/';
   });
@@ -31,11 +45,7 @@ export default function App() {
   // Sync route on popstate (browser back/forward button clicks)
   useEffect(() => {
     const handlePopState = () => {
-      const raw = window.location.pathname;
-      const normalized = normalizePath(raw);
-      const match = ARTICLES.find(
-        (a) => normalizePath(a.url) === normalized
-      );
+      const match = findArticleByPath(window.location.pathname);
       if (match) {
         setCurrentPath(match.url);
       } else {
@@ -104,10 +114,7 @@ export default function App() {
   };
 
   // Find currently active article if any
-  const normalizedCurrent = normalizePath(currentPath);
-  const currentArticle = ARTICLES.find(
-    (a) => normalizePath(a.url) === normalizedCurrent
-  );
+  const currentArticle = findArticleByPath(currentPath);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#2C2E2B]">
