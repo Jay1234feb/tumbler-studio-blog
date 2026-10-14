@@ -1,12 +1,14 @@
 import { Article } from '../types';
-import heroSageImg from '../assets/images/tumbler_hero_sage_1791720658763.jpg';
-import terracottaCreamImg from '../assets/images/tumbler_terracotta_cream_1791720672977.jpg';
-import vacuumInsulatedImg from '../assets/images/tumbler_vacuum_insulated_1791720694952.jpg';
-import cleaningGuideImg from '../assets/images/tumbler_cleaning_guide_1791720682259.jpg';
-import sizesLineupImg from '../assets/images/tumbler_sizes_lineup_1791731205995.jpg';
-import lidsStrawsImg from '../assets/images/tumbler_lids_straws_1791731217414.jpg';
-import ecoLifestyleImg from '../assets/images/tumbler_eco_lifestyle_1791731228501.jpg';
-import iceRetentionImg from '../assets/images/tumbler_ice_retention_1791731240335.jpg';
+import photo1BestReusable from '../assets/images/IMG_0649.JPG';
+import photo2InsulatedVacuum from '../assets/images/IMG_0656.JPG';
+import photo3CleanTumbler from '../assets/images/IMG_0657.JPG';
+import photo4StainlessVsPlastic from '../assets/images/IMG_0650.JPG';
+import photo5SizesGuide from '../assets/images/IMG_0654.JPG';
+import photo6IceRetention from '../assets/images/IMG_0651.JPG';
+import photo7EcoFriendly from '../assets/images/IMG_0653.JPG';
+import photo8RemoveSmells from '../assets/images/IMG_0652.JPG';
+import photo9LidsStraws from '../assets/images/IMG_0653.JPG';
+import photo10LeakPrevention from '../assets/images/IMG_0658.JPG';
 
 export const ARTICLES: Article[] = [
   // 1. Best Reusable Tumblers
@@ -24,8 +26,8 @@ export const ARTICLES: Article[] = [
       name: "Elena Vance",
       role: "Drinkware Editor & Sustainability Specialist",
     },
-    heroImage: terracottaCreamImg,
-    heroImageAlt: "Aesthetic reusable terracotta and cream ceramic-lined travel tumbler resting on natural linen fabric",
+    heroImage: photo1BestReusable,
+    heroImageAlt: "Green reusable tumbler with textured silicone grip band resting on a wooden table",
     wordCount: 1245,
     summary: "Discover what separates ordinary travel cups from high-performance reusable drinkware. Explore material comparisons, leakproof lid engineering, ergonomic design, and key buying considerations for hot coffee and iced beverages.",
     relatedArticleSlugs: ["insulated-tumblers", "how-to-clean-a-tumbler", "stainless-steel-vs-plastic-tumblers"],
@@ -144,8 +146,8 @@ export const ARTICLES: Article[] = [
       name: "Dr. Marcus Finch",
       role: "Thermal Physics & Materials Specialist",
     },
-    heroImage: vacuumInsulatedImg,
-    heroImageAlt: "Close-up photograph of an insulated tumbler showing crisp ice cubes and a sweat-free exterior wall",
+    heroImage: photo2InsulatedVacuum,
+    heroImageAlt: "White double-wall insulated tumbler filled with ice cubes and an open flip-top straw lid",
     wordCount: 1250,
     summary: "Explore the thermodynamic science behind vacuum insulated tumblers. Learn how conductive, convective, and radiative heat transfer barriers work together to maintain temperatures for hours without exterior sweating.",
     relatedArticleSlugs: ["best-reusable-tumblers", "how-to-clean-a-tumbler", "how-long-do-insulated-tumblers-keep-drinks-cold"],
@@ -245,8 +247,8 @@ export const ARTICLES: Article[] = [
       name: "Claire Moreau",
       role: "Hygiene Science & Care Director",
     },
-    heroImage: cleaningGuideImg,
-    heroImageAlt: "Disassembled tumbler lid components, silicone gasket, straw cleaning brush, and fresh lemon slices on a bright clean counter",
+    heroImage: photo3CleanTumbler,
+    heroImageAlt: "Three tumblers soaking in a soapy water kitchen sink for deep cleaning and sanitising",
     wordCount: 1230,
     summary: "Keep your daily reusable drinkware hygienic, odor-free, and performing like new. Discover step-by-step instructions for daily washing, silicone gasket mold prevention, coffee stain lifting, and natural deodorizing recipes.",
     relatedArticleSlugs: ["how-to-remove-smells-from-a-tumbler", "how-to-prevent-tumbler-leaks-and-spills", "best-reusable-tumblers"],
@@ -368,8 +370,8 @@ export const ARTICLES: Article[] = [
       name: "Dr. Marcus Finch",
       role: "Thermal Physics & Materials Specialist",
     },
-    heroImage: ecoLifestyleImg,
-    heroImageAlt: "Pastel sage reusable insulated tumbler surrounded by green eucalyptus leaves and natural linen on a wooden table",
+    heroImage: photo4StainlessVsPlastic,
+    heroImageAlt: "Cream-coloured travel tumbler with scenic coastal art and a white woven 'COFFEE' strap",
     wordCount: 1180,
     summary: "Examine the scientific and practical differences between stainless steel and plastic tumblers. Discover how material composition impacts chemical safety, thermal performance, odor resistance, and long-term durability.",
     relatedArticleSlugs: ["best-reusable-tumblers", "insulated-tumblers", "are-reusable-tumblers-eco-friendly"],
@@ -459,8 +461,8 @@ export const ARTICLES: Article[] = [
       name: "Elena Vance",
       role: "Drinkware Editor & Sustainability Specialist",
     },
-    heroImage: sizesLineupImg,
-    heroImageAlt: "Three insulated tumblers in 16oz, 24oz, and 32oz sizes arranged neatly on a modern travertine shelf",
+    heroImage: photo5SizesGuide,
+    heroImageAlt: "Multiple tumblers of different sizes arranged together on a tabletop vanity",
     wordCount: 1195,
     summary: "Selecting the correct tumbler capacity is key to temperature retention, portability, and vehicle cupholder fit. Learn how to match tumbler fluid ounces (12oz to 40oz) to your coffee brewing routines and hydration targets.",
     relatedArticleSlugs: ["best-reusable-tumblers", "how-long-do-insulated-tumblers-keep-drinks-cold", "tumbler-lid-and-straw-types-explained"],
@@ -551,8 +553,8 @@ export const ARTICLES: Article[] = [
       name: "Dr. Marcus Finch",
       role: "Thermal Physics & Materials Specialist",
     },
-    heroImage: iceRetentionImg,
-    heroImageAlt: "Macro close-up inside an insulated tumbler showing crystal clear ice cubes and frost along the stainless steel rim",
+    heroImage: photo6IceRetention,
+    heroImageAlt: "Cream Stanley-style insulated tumbler packed with fresh ice cubes held in hand",
     wordCount: 1190,
     summary: "Discover the factors that determine how long your tumbler maintains freezing temperatures. Learn how vacuum pressure, copper barriers, ice-to-liquid ratios, and lid closures dictate real-world thermal retention.",
     relatedArticleSlugs: ["insulated-tumblers", "how-to-choose-the-right-tumbler-size", "how-to-prevent-tumbler-leaks-and-spills"],
@@ -636,8 +638,8 @@ export const ARTICLES: Article[] = [
       name: "Elena Vance",
       role: "Drinkware Editor & Sustainability Specialist",
     },
-    heroImage: heroSageImg,
-    heroImageAlt: "Pastel sage green reusable drinkware tumbler on natural stone slab illustrating sustainable minimalist hydration",
+    heroImage: photo7EcoFriendly,
+    heroImageAlt: "Clear reusable glass tumbler with white sleeve, separate lid, and glass straw",
     wordCount: 1195,
     summary: "A rigorous environmental analysis of reusable drinkware. Explore life cycle assessments (LCAs), embodied carbon emissions in steel production, the disposable cup epidemic, and when reusables truly become green.",
     relatedArticleSlugs: ["best-reusable-tumblers", "stainless-steel-vs-plastic-tumblers", "how-to-clean-a-tumbler"],
@@ -718,8 +720,8 @@ export const ARTICLES: Article[] = [
       name: "Claire Moreau",
       role: "Hygiene Science & Care Director",
     },
-    heroImage: cleaningGuideImg,
-    heroImageAlt: "Disassembled tumbler lid with natural lemon slices, vinegar bath, and baking soda for deep odor removal",
+    heroImage: photo8RemoveSmells,
+    heroImageAlt: "Cream insulated tumbler filled with fresh lemon and cucumber slices for natural odour removal",
     wordCount: 1180,
     summary: "Discover why travel mugs develop stubborn sour milk, stale coffee, or mildew smells, and master natural, chemical-free deodorizing remedies to restore factory-fresh scent neutrality.",
     relatedArticleSlugs: ["how-to-clean-a-tumbler", "tumbler-lid-and-straw-types-explained", "how-to-prevent-tumbler-leaks-and-spills"],
@@ -823,8 +825,8 @@ export const ARTICLES: Article[] = [
       name: "Dr. Marcus Finch",
       role: "Thermal Physics & Materials Specialist",
     },
-    heroImage: lidsStrawsImg,
-    heroImageAlt: "Overhead view of various tumbler lid styles, magnetic slider, flip lock, silicone straw, and steel straw on stone surface",
+    heroImage: photo9LidsStraws,
+    heroImageAlt: "Disassembled clear glass tumbler showing separate transparent lid, silicone seal, and glass straw",
     wordCount: 1190,
     summary: "Compare the mechanics, spill resistance, and drinking ergonomics of slider lids, flip locks, threaded caps, and straw ports. Learn the pros and cons of silicone, steel, and glass reusable straws.",
     relatedArticleSlugs: ["how-to-prevent-tumbler-leaks-and-spills", "best-reusable-tumblers", "how-to-clean-a-tumbler"],
@@ -906,8 +908,8 @@ export const ARTICLES: Article[] = [
       name: "Claire Moreau",
       role: "Hygiene Science & Care Director",
     },
-    heroImage: terracottaCreamImg,
-    heroImageAlt: "Premium terracotta and cream insulated travel mug with leakproof flip cap resting securely on linen cloth",
+    heroImage: photo10LeakPrevention,
+    heroImageAlt: "Clear 'bluepolar' tumbler filled with iced coffee and fitted with a secure splash-resistant straw lid",
     wordCount: 1190,
     summary: "Never suffer a spilled coffee in your bag again. Understand the mechanical physics of leak prevention, gasket alignment, steam pressure equalization, and how to troubleshoot troublesome tumbler drips.",
     relatedArticleSlugs: ["best-reusable-tumblers", "tumbler-lid-and-straw-types-explained", "how-to-clean-a-tumbler"],
