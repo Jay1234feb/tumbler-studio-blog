@@ -1,6 +1,6 @@
 import { Article } from '../types';
 import photo1BestReusable from '../assets/images/IMG_0649.JPG';
-import photo2InsulatedVacuum from '../assets/images/IMG_0656.JPG';
+import photo2InsulatedVacuum from '../assets/images/IMG_0655.JPG';
 import photo3CleanTumbler from '../assets/images/IMG_0657.JPG';
 import photo4StainlessVsPlastic from '../assets/images/IMG_0650.JPG';
 import photo5SizesGuide from '../assets/images/IMG_0654.JPG';
@@ -147,7 +147,7 @@ export const ARTICLES: Article[] = [
       role: "Thermal Physics & Materials Specialist",
     },
     heroImage: photo2InsulatedVacuum,
-    heroImageAlt: "White double-wall insulated tumbler filled with ice cubes and an open flip-top straw lid",
+    heroImageAlt: "Pink double-wall vacuum insulated tumbler packed with ice cubes and resting on a stone surface with lid open",
     wordCount: 1250,
     summary: "Explore the thermodynamic science behind vacuum insulated tumblers. Learn how conductive, convective, and radiative heat transfer barriers work together to maintain temperatures for hours without exterior sweating.",
     relatedArticleSlugs: ["best-reusable-tumblers", "how-to-clean-a-tumbler", "how-long-do-insulated-tumblers-keep-drinks-cold"],

@@ -12,7 +12,7 @@ import {
   Compass,
   Filter
 } from 'lucide-react';
-import heroSageImg from '../assets/images/tumbler_hero_sage_1791720658763.jpg';
+import heroSageImg from '../assets/images/IMG_0649.JPG';
 
 interface HomePageProps {
   onNavigate: (path: string) => void;
@@ -123,16 +123,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div className="relative rounded-2xl overflow-hidden bg-[#F4F0E8] border border-[#E8E2D5] shadow-lg group">
               <img
                 src={heroSageImg}
-                alt="Minimalist pastel sage green insulated reusable tumbler with stainless steel rim resting on natural travertine stone"
+                alt="Matte olive-green reusable travel tumbler with textured grip band resting on a wooden cafe table"
                 referrerPolicy="no-referrer"
                 className="w-full aspect-[4/3] lg:aspect-[16/12] object-cover transition-transform duration-700 group-hover:scale-102"
               />
               <div className="p-4 bg-[#FAF8F5] border-t border-[#E8E2D5] text-xs text-[#555A52] flex items-center justify-between">
                 <div>
-                  <span className="font-semibold text-[#2C2E2B]">Featured Study:</span> The Horizon Form
+                  <span className="font-semibold text-[#2C2E2B]">Featured Study:</span> Daily Reusable Drinkware
                 </div>
                 <div className="text-[11px] text-[#8F9E8B] font-medium">
-                  Pastel Sage & Brushed Steel
+                  Olive Green & Natural Wood
                 </div>
               </div>
             </div>
