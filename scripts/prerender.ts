@@ -14,73 +14,73 @@ const baseHtml = fs.readFileSync(indexHtmlPath, 'utf-8');
 const articles = [
   {
     slug: 'best-reusable-tumblers',
-    seoTitle: "Best Reusable Tumblers Guide: Materials, Insulation & Buying Tips | Tumbler Studio",
-    metaDescription: "Learn how to choose the best reusable tumblers. Comprehensive guide covering stainless steel vs glass materials, leakproof lids, insulation, and buying advice.",
+    seoTitle: "Best Reusable Tumblers Buying Guide | Tumbler Studio",
+    metaDescription: "Find the best reusable tumblers for coffee and cold drinks. Compare stainless steel and ceramic designs with leakproof lids in this Tumbler Studio buyer guide.",
     mainKeyword: "best reusable tumblers",
-    relatedKeywords: ["eco-friendly travel mugs", "reusable drinkware guide"]
+    relatedKeywords: ["best reusable tumbler with straw", "best reusable cups"]
   },
   {
     slug: 'insulated-tumblers',
-    seoTitle: "Insulated Tumblers Explained: How Double-Wall Vacuum Insulation Works | Tumbler Studio",
-    metaDescription: "Understand how insulated tumblers work. Explore double-wall vacuum technology, temperature retention principles, material choices, and how to pick the right one.",
-    mainKeyword: "insulated tumblers",
-    relatedKeywords: ["double wall vacuum insulation", "temperature retention drinkware"]
+    seoTitle: "Insulated Tumbler Guide: Double-Wall Tech | Tumbler Studio",
+    metaDescription: "Learn how an insulated tumbler uses double-wall vacuum technology to keep drinks hot or cold for hours without condensation. Read the Tumbler Studio guide.",
+    mainKeyword: "insulated tumbler",
+    relatedKeywords: ["insulated tumbler stainless", "insulated vacuum tumbler"]
   },
   {
     slug: 'how-to-clean-a-tumbler',
-    seoTitle: "How to Clean a Tumbler: Deep Cleaning, Gasket Care & Odour Removal | Tumbler Studio",
-    metaDescription: "Master how to clean a tumbler properly. Learn daily washing steps, how to sanitize silicone lid gaskets, remove stubborn coffee odours, and avoid common cleaning mistakes.",
+    seoTitle: "How to Clean a Tumbler: Deep Cleaning Tips | Tumbler Studio",
+    metaDescription: "Learn how to clean a tumbler properly with our step-by-step guide. Sanitize silicone lid gaskets, remove coffee stains, and eliminate stubborn odours easily.",
     mainKeyword: "how to clean a tumbler",
-    relatedKeywords: ["clean tumbler lid gasket", "remove coffee odour from tumbler"]
+    relatedKeywords: ["how to clean tumbler lid", "how to clean insulated tumbler"]
   },
   {
     slug: 'stainless-steel-vs-plastic-tumblers',
-    seoTitle: "Stainless Steel vs. Plastic Tumblers: Materials, Health & Durability Compared | Tumbler Studio",
-    metaDescription: "Compare stainless steel vs plastic tumblers. Discover differences in chemical safety, thermal insulation, durability, taste retention, and environmental impact.",
+    seoTitle: "Stainless Steel vs Plastic Tumblers | Tumbler Studio",
+    metaDescription: "Compare stainless steel vs plastic tumblers for daily drinks. Discover key differences in health safety, insulation, durability, and taste at Tumbler Studio.",
     mainKeyword: "stainless steel vs plastic tumblers",
-    relatedKeywords: ["BPA free travel cups", "metal vs plastic drinkware"]
+    relatedKeywords: ["stainless steel tumbler benefits", "plastic vs metal travel mug"]
   },
   {
     slug: 'how-to-choose-the-right-tumbler-size',
-    seoTitle: "How to Choose the Right Tumbler Size: 12oz, 16oz, 20oz, 24oz & 32oz Guide | Tumbler Studio",
-    metaDescription: "Find your ideal tumbler capacity. Explore our guide on 12oz to 40oz drinkware sizes for espresso, daily commuting, vehicle cupholders, and all-day hydration.",
+    seoTitle: "How to Choose the Right Tumbler Size | Tumbler Studio",
+    metaDescription: "Learn how to choose the right tumbler size for coffee, commuting, and all-day hydration. Compare 12oz to 40oz drinkware capacities at Tumbler Studio.",
     mainKeyword: "how to choose the right tumbler size",
-    relatedKeywords: ["tumbler capacity guide", "best tumbler size for coffee"]
+    relatedKeywords: ["tumbler size comparison", "best tumbler size for coffee"]
   },
   {
     slug: 'how-long-do-insulated-tumblers-keep-drinks-cold',
-    seoTitle: "How Long Do Insulated Tumblers Keep Drinks Cold? Thermal Retention Tested | Tumbler Studio",
-    metaDescription: "Discover how long insulated tumblers keep drinks cold. Learn the science of ice retention, temperature decay factors, pre-chilling methods, and lid impact.",
+    seoTitle: "How Long Do Insulated Tumblers Stay Cold? | Tumbler Studio",
+    metaDescription: "Discover how long do insulated tumblers keep drinks cold. Learn the science of ice retention, real temperature testing, and pre-chilling tips at Tumbler Studio.",
     mainKeyword: "how long do insulated tumblers keep drinks cold",
-    relatedKeywords: ["tumbler ice retention hours", "keep water cold in insulated mug"]
+    relatedKeywords: ["tumbler ice retention", "keep drinks cold in insulated tumbler"]
   },
   {
     slug: 'are-reusable-tumblers-eco-friendly',
-    seoTitle: "Are Reusable Tumblers Really Eco-Friendly? Carbon Footprint & Lifecycle Analysis | Tumbler Studio",
-    metaDescription: "Investigate whether reusable tumblers are truly eco-friendly. Examine manufacturing emissions, break-even usage milestones, and plastic cup reduction data.",
+    seoTitle: "Are Reusable Tumblers Eco-Friendly? | Tumbler Studio",
+    metaDescription: "Are reusable tumblers eco friendly? Explore carbon lifecycle data, break-even usage milestones, and plastic reduction benefits in this Tumbler Studio guide.",
     mainKeyword: "are reusable tumblers eco friendly",
-    relatedKeywords: ["reusable cup environmental impact", "stainless steel tumbler carbon footprint"]
+    relatedKeywords: ["reusable tumbler environmental impact", "eco friendly travel mugs"]
   },
   {
     slug: 'how-to-remove-smells-from-a-tumbler',
-    seoTitle: "How to Remove Smells from a Tumbler: Deep Deodorizing Hacks for Lids & Steel | Tumbler Studio",
-    metaDescription: "Eliminate stubborn coffee, sour milk, and mildew odours from your tumbler. Safe, natural deodorizing solutions using baking soda, vinegar, lemon, and oven curing.",
+    seoTitle: "How to Remove Smells from a Tumbler | Tumbler Studio",
+    metaDescription: "Discover how to remove smells from a tumbler using baking soda, vinegar, and natural deodorizing hacks for stubborn coffee odours on stainless steel and lids.",
     mainKeyword: "how to remove smells from a tumbler",
-    relatedKeywords: ["deodorize silicone tumbler lid", "get coffee smell out of travel mug"]
+    relatedKeywords: ["remove coffee smell from tumbler", "how to clean smelly tumbler lid"]
   },
   {
     slug: 'tumbler-lid-and-straw-types-explained',
-    seoTitle: "Tumbler Lid and Straw Types Explained: Magnetic, Slider, Flip & Straw Caps | Tumbler Studio",
-    metaDescription: "Comprehensive breakdown of tumbler lid and straw styles. Compare magnetic sliders, push-fit caps, flip locks, silicone straws, and stainless steel sipping tubes.",
+    seoTitle: "Tumbler Lid and Straw Types Explained | Tumbler Studio",
+    metaDescription: "Explore tumbler lid and straw types explained in detail. Compare magnetic sliders, flip caps, silicone straws, and splash-proof closures at Tumbler Studio.",
     mainKeyword: "tumbler lid and straw types explained",
-    relatedKeywords: ["best tumbler lid styles", "reusable straw materials comparison"]
+    relatedKeywords: ["tumbler lid types", "reusable tumbler straws"]
   },
   {
     slug: 'how-to-prevent-tumbler-leaks-and-spills',
-    seoTitle: "How to Prevent Tumbler Leaks and Spills: Gasket Care, Pressure & Seal Solutions | Tumbler Studio",
-    metaDescription: "Stop your travel tumbler from leaking and dripping. Discover why gaskets fail, how to equalize internal steam pressure, and how to maintain airtight seals.",
+    seoTitle: "How to Prevent Tumbler Leaks and Spills | Tumbler Studio",
+    metaDescription: "Learn how to prevent tumbler leaks and spills with gasket maintenance, steam pressure tips, and leakproof seal troubleshooting from Tumbler Studio experts.",
     mainKeyword: "how to prevent tumbler leaks and spills",
-    relatedKeywords: ["stop travel mug leaking in bag", "fix tumbler silicone seal gasket"]
+    relatedKeywords: ["leakproof tumbler lids", "stop tumbler from leaking"]
   }
 ];
 

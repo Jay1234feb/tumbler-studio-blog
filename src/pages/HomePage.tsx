@@ -260,9 +260,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <a
                     href={article.url}
                     onClick={(e) => handleLink(e, article.url)}
+                    aria-label={`Read guide: ${article.title}`}
                     className="font-semibold text-[#C86D51] group-hover:text-[#B1583D] flex items-center gap-1.5"
                   >
-                    <span>Read Article</span>
+                    <span>Read {article.mainKeyword} guide</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -383,9 +384,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <a
                     href={article.url}
                     onClick={(e) => handleLink(e, article.url)}
+                    aria-label={`Read guide: ${article.title}`}
                     className="font-semibold text-[#C86D51] group-hover:text-[#B1583D] flex items-center gap-1"
                   >
-                    <span>Read Article</span>
+                    <span>Read {article.mainKeyword} guide</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -437,7 +439,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               onClick={(e) => handleLink(e, '/articles/best-reusable-tumblers/')}
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#C86D51] hover:text-[#B1583D] pt-1"
             >
-              <span>Read the complete buyer's comparison guide</span>
+              <span>Read the complete best reusable tumblers buyer guide</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -469,7 +471,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               onClick={(e) => handleLink(e, '/articles/insulated-tumblers/')}
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#3E4C3D] hover:text-[#2C2E2B] pt-1"
             >
-              <span>Explore the complete vacuum thermal physics guide</span>
+              <span>Explore the complete insulated tumbler vacuum physics guide</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>

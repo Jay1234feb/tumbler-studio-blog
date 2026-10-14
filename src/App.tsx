@@ -60,13 +60,13 @@ export default function App() {
   // Update SEO head tags when route is homepage
   useEffect(() => {
     if (normalizePath(currentPath) === '/') {
-      document.title = 'Tumbler Studio — The Tumbler & Drinkware Blog';
+      document.title = 'Tumbler Studio: Reusable & Insulated Tumblers Guide';
 
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
         metaDesc.setAttribute(
           'content',
-          'Explore Tumbler Studio for in-depth drinkware guides, reusable tumbler comparisons, thermal vacuum insulation science, and expert cleaning tips.'
+          'Discover the best reusable tumblers at Tumbler Studio. Explore in-depth guides on double-wall vacuum insulation, leakproof lids, and daily care tips.'
         );
       }
 
@@ -74,7 +74,7 @@ export default function App() {
       if (metaKeywords) {
         metaKeywords.setAttribute(
           'content',
-          'reusable tumblers, insulated tumblers, how to clean a tumbler, drinkware blog, tumbler studio'
+          'reusable tumblers, insulated tumblers, tumbler drinkware blog, tumbler studio'
         );
       }
 
@@ -82,7 +82,7 @@ export default function App() {
       if (ogTitle) {
         ogTitle.setAttribute(
           'content',
-          'Tumbler Studio — The Tumbler & Drinkware Blog'
+          'Tumbler Studio: Reusable & Insulated Tumblers Guide'
         );
       }
 
@@ -90,7 +90,23 @@ export default function App() {
       if (ogDesc) {
         ogDesc.setAttribute(
           'content',
-          'Explore Tumbler Studio for in-depth drinkware guides, reusable tumbler comparisons, thermal vacuum insulation science, and expert cleaning tips.'
+          'Discover the best reusable tumblers at Tumbler Studio. Explore in-depth guides on double-wall vacuum insulation, leakproof lids, and daily care tips.'
+        );
+      }
+
+      const twTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twTitle) {
+        twTitle.setAttribute(
+          'content',
+          'Tumbler Studio: Reusable & Insulated Tumblers Guide'
+        );
+      }
+
+      const twDesc = document.querySelector('meta[name="twitter:description"]');
+      if (twDesc) {
+        twDesc.setAttribute(
+          'content',
+          'Discover the best reusable tumblers at Tumbler Studio. Explore in-depth guides on double-wall vacuum insulation, leakproof lids, and daily care tips.'
         );
       }
     }

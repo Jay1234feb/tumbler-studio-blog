@@ -48,6 +48,16 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
     if (ogDesc) {
       ogDesc.setAttribute('content', article.metaDescription);
     }
+
+    const twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) {
+      twTitle.setAttribute('content', article.seoTitle);
+    }
+
+    const twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) {
+      twDesc.setAttribute('content', article.metaDescription);
+    }
   }, [article]);
 
   const relatedArticles = ARTICLES.filter((a) =>
@@ -58,6 +68,42 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
     e.preventDefault();
     onNavigate(path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Helper to parse contextual markdown internal links: [Anchor Text](/articles/slug/)
+  const renderContentWithLinks = (text: string) => {
+    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    if (!linkRegex.test(text)) return text;
+    linkRegex.lastIndex = 0;
+
+    const elements: React.ReactNode[] = [];
+    let lastIdx = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = linkRegex.exec(text)) !== null) {
+      if (match.index > lastIdx) {
+        elements.push(text.substring(lastIdx, match.index));
+      }
+      const label = match[1];
+      const targetUrl = match[2];
+      elements.push(
+        <a
+          key={match.index}
+          href={targetUrl}
+          onClick={(e) => handleLink(e, targetUrl)}
+          className="font-medium text-[#C86D51] hover:text-[#B1583D] underline underline-offset-2 decoration-[#C86D51]/50 hover:decoration-[#B1583D] transition-colors"
+        >
+          {label}
+        </a>
+      );
+      lastIdx = linkRegex.lastIndex;
+    }
+
+    if (lastIdx < text.length) {
+      elements.push(text.substring(lastIdx));
+    }
+
+    return elements;
   };
 
   return (
@@ -184,11 +230,11 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
               </div>
             )}
 
-            {/* Body Paragraphs */}
+            {/* Body Paragraphs with Contextual Internal Links */}
             <div className="space-y-4 text-sm sm:text-base text-[#474B43]">
               {section.content.map((p, pIdx) => (
                 <p key={pIdx} className="leading-relaxed">
-                  {p}
+                  {renderContentWithLinks(p)}
                 </p>
               ))}
             </div>
@@ -203,7 +249,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                     </h3>
                     {sub.content.map((subP, subPIdx) => (
                       <p key={subPIdx} className="text-sm sm:text-base text-[#474B43] leading-relaxed">
-                        {subP}
+                        {renderContentWithLinks(subP)}
                       </p>
                     ))}
                   </div>
@@ -304,6 +350,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
               key={rel.slug}
               href={rel.url}
               onClick={(e) => handleLink(e, rel.url)}
+              aria-label={`Read guide: ${rel.title}`}
               className="group p-4 bg-white border border-[#E8E2D5] rounded-xl flex gap-4 hover:border-[#D9D2C4] hover:shadow-sm transition-all"
             >
               <img
@@ -322,7 +369,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                   </h4>
                 </div>
                 <div className="text-[11px] font-medium text-[#6C7069] flex items-center gap-1 mt-2">
-                  <span>Read Guide</span>
+                  <span className="group-hover:text-[#C86D51] transition-colors">Read {rel.mainKeyword} guide</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
